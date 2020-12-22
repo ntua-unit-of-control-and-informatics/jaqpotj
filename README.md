@@ -1,0 +1,2 @@
+# jaqpotj
+ Java jaqpot client
