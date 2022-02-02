@@ -8,7 +8,7 @@ import java.io.IOException;
 
 public class FeatureConsumer extends BaseConsumer<Feature> {
 
-    private static final String FEATUREENDPOINT = "/jaqpot/services/feature/";
+    private static final String FEATUREENDPOINT = "/services/feature/";
 
     public FeatureConsumer(AsyncHttpClient client, Serializer serializer, String basepath) {
         super(client, serializer, basepath + FEATUREENDPOINT);

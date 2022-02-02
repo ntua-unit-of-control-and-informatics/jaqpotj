@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"xyz.euclia.jaqpotj"},{"l":"xyz.euclia.jaqpotj.adapter"},{"l":"xyz.euclia.jaqpotj.consumers"},{"l":"xyz.euclia.jaqpotj.exception"},{"l":"xyz.euclia.jaqpotj.models"},{"l":"xyz.euclia.jaqpotj.serializer"}];updateSearchResults();

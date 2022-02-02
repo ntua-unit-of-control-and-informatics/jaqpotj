@@ -9,7 +9,7 @@ import java.io.IOException;
 
 public class DatasetConsumer extends BaseConsumer<Dataset>{
 
-    private static final String DATASETENDPOINT = "/jaqpot/services/dataset/";
+    private static final String DATASETENDPOINT = "/services/dataset/";
 
     public DatasetConsumer(AsyncHttpClient client, Serializer serializer, String basepath) {
         super(client, serializer, basepath + DATASETENDPOINT);

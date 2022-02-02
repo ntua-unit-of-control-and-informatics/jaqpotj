@@ -7,6 +7,7 @@ import xyz.euclia.jaqpotj.models.*;
 import java.io.Closeable;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 
@@ -15,6 +16,19 @@ import java.util.concurrent.Future;
  * @author pantelispanka
  */
 public interface Jaqpot extends Closeable {
+
+    /**
+     *
+     * Login and retrieve token
+     *
+     * @param username is the users username
+     * @param password is the users password
+     * @return Future Response get the response when finished.
+     * If 200 status you get the auth response.
+     * Other you get an ErrorReport.
+     *
+     */
+    Future<Auth> Login(String username, String password) throws JaqpotException;
 
     /**
      *

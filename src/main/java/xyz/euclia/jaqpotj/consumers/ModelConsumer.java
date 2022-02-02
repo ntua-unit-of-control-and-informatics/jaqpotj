@@ -24,7 +24,7 @@ import java.util.concurrent.CompletableFuture;
 
 public class ModelConsumer extends BaseConsumer<Model>{
 
-    private static final String MODELENDPOINT = "/jaqpot/services/model/";
+    private static final String MODELENDPOINT = "/services/model/";
     private final AsyncHttpClient client;
     private final Serializer serializer;
     protected String path;
@@ -105,7 +105,7 @@ public class ModelConsumer extends BaseConsumer<Model>{
         postRequest.setHeader("Authorization", "Bearer " + token);
         postRequest.setHeader("accept", "application/json");
         postRequest.setHeader("Content-Type", "application/x-www-form-urlencoded");
-        String dataset_uri = this.basePath + "/jaqpot/services/dataset/" + datasetUri;
+        String dataset_uri = this.basePath + "/services/dataset/" + datasetUri;
 
         List<Param> params = new ArrayList<>();
         Param p = new Param("dataset_uri", dataset_uri);

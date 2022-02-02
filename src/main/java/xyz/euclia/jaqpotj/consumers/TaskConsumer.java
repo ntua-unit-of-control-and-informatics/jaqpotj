@@ -10,7 +10,7 @@ import java.io.IOException;
 public class TaskConsumer extends BaseConsumer<Task>{
 
 
-    private static final String TASKENDPOINT = "/jaqpot/services/task/";
+    private static final String TASKENDPOINT = "/services/task/";
 
 
     public TaskConsumer(AsyncHttpClient client, Serializer serializer, String basepath) {

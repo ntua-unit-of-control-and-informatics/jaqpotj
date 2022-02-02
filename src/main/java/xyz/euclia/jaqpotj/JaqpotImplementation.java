@@ -3,10 +3,7 @@ package xyz.euclia.jaqpotj;
 import org.asynchttpclient.AsyncHttpClient;
 import org.asynchttpclient.Param;
 import xyz.euclia.jaqpotj.adapter.DatasetAdapterFactory;
-import xyz.euclia.jaqpotj.consumers.DatasetConsumer;
-import xyz.euclia.jaqpotj.consumers.FeatureConsumer;
-import xyz.euclia.jaqpotj.consumers.ModelConsumer;
-import xyz.euclia.jaqpotj.consumers.TaskConsumer;
+import xyz.euclia.jaqpotj.consumers.*;
 import xyz.euclia.jaqpotj.exception.JaqpotException;
 import xyz.euclia.jaqpotj.models.*;
 import xyz.euclia.jaqpotj.serializer.Serializer;
@@ -26,6 +23,7 @@ public class JaqpotImplementation implements Jaqpot{
     private final Serializer serializer;
     private final AsyncHttpClient httpClient;
 
+    private final AAConsumer aaConsumer;
     private final ModelConsumer modelConsumer;
     private final FeatureConsumer featureConsumer;
     private final DatasetConsumer datasetConsumer;
@@ -34,18 +32,31 @@ public class JaqpotImplementation implements Jaqpot{
     public JaqpotImplementation(
             AsyncHttpClient client,
             Serializer serializer,
+            AAConsumer aaConsumer,
             ModelConsumer modelConsumer,
             FeatureConsumer featureConsumer,
             DatasetConsumer datasetConsumer,
             TaskConsumer taskConsumer) {
         this.httpClient = client;
         this.serializer = serializer;
+        this.aaConsumer = aaConsumer;
         this.modelConsumer = modelConsumer;
         this.taskConsumer = taskConsumer;
         this.featureConsumer = featureConsumer;
         this.datasetConsumer = datasetConsumer;
     }
 
+
+    @Override
+    public Future<Auth> Login(String username, String password) throws JaqpotException{
+//        TypeReference<Auth> c =new TypeReference<Model>() {
+//            @Override
+//            public Type getType() {
+//                return super.getType();
+//            }
+//        };
+        return this.aaConsumer.login(username, password);
+    }
 
     @Override
     public Future<Model> GetModelById(String id, String token) throws JaqpotException {
@@ -184,7 +195,7 @@ public class JaqpotImplementation implements Jaqpot{
                 List<Param> params = new ArrayList<>();
                 Param p1 = new Param("dataEntries", "true");
                 Param p2 = new Param("rowStart", "0");
-                Param p3 = new Param("rowMax", "500");
+                Param p3 = new Param("rowMax", "4000");
                 params.add(p1);
                 params.add(p2);
                 params.add(p3);

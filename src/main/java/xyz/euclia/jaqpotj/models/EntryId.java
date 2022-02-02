@@ -11,13 +11,23 @@ public class EntryId {
         String name;
         String ownerUUID;
         String type;
+//        String uri;
 
         public EntryId(){}
         public EntryId(String URI, String name, String ownerUUID) {
             this.URI = URI;
             this.name = name;
             this.ownerUUID = ownerUUID;
+//            this.uri = uri;
         }
+
+//        public String geturi() {
+//        return uri;
+//    }
+//
+//        public void seturi(String uri) {
+//        this.uri = uri;
+//    }
 
         public String getURI() {
             return URI;
